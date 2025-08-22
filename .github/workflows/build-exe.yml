@@ -1,0 +1,67 @@
+name: Build Log Watchdog Executable
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [closed]
+
+jobs:
+  build:
+    # Only run on merge to main (when PR is merged)
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
+    
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.13'
+        
+    - name: Upgrade pip
+      run: |
+        python -m pip install --upgrade pip
+        
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+        
+    - name: Install PyInstaller
+      run: |
+        pip install pyinstaller
+        
+    - name: Create executable
+      run: |
+        pyinstaller --onefile --name=logwatchdog --distpath=dist --workpath=build --clean main.py
+        
+    - name: List build artifacts
+      run: |
+        dir dist
+        echo "Executable size:"
+        Get-ChildItem dist\rich_logger.exe | ForEach-Object { "{0:N2} MB" -f ($_.Length / 1MB) }
+        
+    - name: Upload executable as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: logwatchdog
+        path: dist/logwatchdog.exe
+        retention-days: 90
+        
+    - name: Create release info
+      run: |
+        echo "Build completed successfully!" > build-info.txt
+        echo "Date: $(Get-Date)" >> build-info.txt
+        echo "Commit: ${{ github.sha }}" >> build-info.txt
+        echo "Branch: ${{ github.ref_name }}" >> build-info.txt
+        echo "Python: $(python --version)" >> build-info.txt
+        
+    - name: Upload build info
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-info
+        path: build-info.txt
+        retention-days: 90
