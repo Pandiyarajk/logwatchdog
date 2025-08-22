@@ -1,8 +1,8 @@
 """
-Rich Logger - Main Entry Point
+Main Entry Point
 ==============================
 
-This module serves as the main entry point for the Rich Logger application.
+This module serves as the main entry point for the log monitoring.
 It initializes the log monitoring system and starts monitoring for exceptions
 in specified log files.
 
@@ -20,3 +20,4 @@ if __name__ == "__main__":
     # Start the continuous log monitoring process
     # This function runs indefinitely until interrupted
     monitor_log()
+
