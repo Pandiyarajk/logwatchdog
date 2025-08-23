@@ -4,6 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PyPI version](https://badge.fury.io/py/logwatchdog.svg)](https://pypi.org/project/logwatchdog/)
 [![GitHub](https://img.shields.io/badge/github-logwatchdog-green.svg)](https://github.com/pandiyarajk/logwatchdog)
+[![Build Log Watchdog Executable](https://github.com/Pandiyarajk/logwatchdog/actions/workflows/build-exe.yml/badge.svg)](https://github.com/Pandiyarajk/logwatchdog/actions/workflows/build-exe.yml)
 
 **LogWatchdog** is a production-ready Windows log monitoring solution that provides real-time monitoring, notifications, and automated log management capabilities.
 
