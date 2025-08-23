@@ -3,6 +3,8 @@
 [![Python 3.7+](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PyPI version](https://badge.fury.io/py/logwatchdog.svg)](https://pypi.org/project/logwatchdog/)
+[![PyPI version](https://img.shields.io/pypi/v/logwatchdog.svg)](https://pypi.org/project/logwatchdog/)
+[![PyPI downloads](https://img.shields.io/pypi/dm/logwatchdog.svg)](https://pypi.org/project/logwatchdog/)
 [![GitHub](https://img.shields.io/badge/github-logwatchdog-green.svg)](https://github.com/pandiyarajk/logwatchdog)
 [![Build Log Watchdog Executable](https://github.com/Pandiyarajk/logwatchdog/actions/workflows/build-exe.yml/badge.svg)](https://github.com/Pandiyarajk/logwatchdog/actions/workflows/build-exe.yml)
 
