@@ -1,189 +1,46 @@
 # Contributing to LogWatchdog
 
-Thank you for your interest in contributing to LogWatchdog! This document provides guidelines and information for contributors.
+We love your input! We want to make contributing to LogWatchdog as easy and transparent as possible, whether it's:
 
-## 🤝 How to Contribute
+- Reporting a bug
+- Discussing the current state of the code
+- Submitting a fix
+- Proposing new features
+- Becoming a maintainer
 
-### Reporting Issues
+## We Develop with Github
+We use GitHub to host code, to track issues and feature requests, as well as accept pull requests.
 
-- Use the [GitHub Issues](https://github.com/pandiyarajk/logwatchdog/issues) page
-- Include detailed information about your environment
-- Provide steps to reproduce the issue
-- Include relevant log files and error messages
+## We Use [Github Flow](https://guides.github.com/introduction/flow/)
+Pull requests are the best way to propose changes to the codebase. We actively welcome your pull requests:
 
-### Suggesting Features
+1. Fork the repo and create your branch from `main`.
+2. If you've added code that should be tested, add tests.
+3. If you've changed APIs, update the documentation.
+4. Ensure the test suite passes.
+5. Make sure your code lints.
+6. Issue that pull request!
 
-- Open a [GitHub Discussion](https://github.com/pandiyarajk/logwatchdog/discussions)
-- Describe the feature and its benefits
-- Provide use cases and examples
-- Consider implementation complexity
+## Any contributions you make will be under the MIT Software License
+In short, when you submit code changes, your submissions are understood to be under the same [MIT License](http://choosealicense.com/licenses/mit/) that covers the project. Feel free to contact the maintainers if that's a concern.
 
-### Code Contributions
+## Report bugs using Github's [issue tracker](https://github.com/pandiyarajk/logwatchdog/issues)
+We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/pandiyarajk/logwatchdog/issues/new).
 
-1. **Fork the repository**
-2. **Create a feature branch**: `git checkout -b feature/amazing-feature`
-3. **Make your changes**
-4. **Test thoroughly**
-5. **Commit with clear messages**: `git commit -m 'Add amazing feature'`
-6. **Push to your fork**: `git push origin feature/amazing-feature`
-7. **Open a Pull Request**
+## Write bug reports with detail, background, and sample code
 
-## 🛠️ Development Setup
+**Great Bug Reports** tend to have:
 
-### Prerequisites
+- A quick summary and/or background
+- Steps to reproduce
+  - Be specific!
+  - Give sample code if you can.
+- What you expected would happen
+- What actually happens
+- Notes (possibly including why you think this might be happening, or stuff you tried that didn't work)
 
-- Python 3.7+
-- Git
-- Windows 10/11 (for testing)
+## License
+By contributing, you agree that your contributions will be licensed under its MIT License.
 
-### Local Development
-
-```bash
-# Clone your fork
-git clone https://github.com/YOUR_USERNAME/logwatchdog.git
-cd logwatchdog
-
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install in development mode
-pip install -e .
-
-# Install development dependencies
-pip install -r requirements-dev.txt
-```
-
-### Running Tests
-
-```bash
-# Run all tests
-pytest
-
-# Run with coverage
-pytest --cov=logwatchdog
-
-# Run specific test file
-pytest tests/test_monitor.py
-
-# Run with verbose output
-pytest -v
-```
-
-### Code Quality
-
-```bash
-# Format code
-black logwatchdog/
-
-# Lint code
-flake8 logwatchdog/
-
-# Type checking
-mypy logwatchdog/
-
-# Run all quality checks
-pre-commit run --all-files
-```
-
-## 📋 Code Standards
-
-### Python Style Guide
-
-- Follow [PEP 8](https://www.python.org/dev/peps/pep-0008/)
-- Use type hints for function parameters and return values
-- Write docstrings for all public functions and classes
-- Keep functions focused and under 50 lines when possible
-
-### Documentation
-
-- Update README.md for user-facing changes
-- Add docstrings for new functions and classes
-- Update CHANGELOG.md for significant changes
-- Include examples in documentation
-
-### Testing
-
-- Write tests for new functionality
-- Maintain test coverage above 80%
-- Use descriptive test names
-- Test both success and failure cases
-
-## 🏗️ Project Structure
-
-```
-logwatchdog/
-├── core/                 # Core monitoring engine
-├── monitors/            # Log monitoring modules
-├── notifiers/           # Notification systems
-├── utils/               # Utility functions
-├── config/              # Configuration management
-├── cli/                 # Command line interface
-├── gui/                 # Graphical user interface
-└── tests/               # Test suite
-```
-
-## 🚀 Release Process
-
-### Platform Focus
-**LogWatchdog is a Windows-only solution.** All development, testing, and releases are focused on Windows 10/11 compatibility.
-
-### Version Numbers
-
-We follow [Semantic Versioning](https://semver.org/):
-- **MAJOR**: Breaking changes
-- **MINOR**: New features, backward compatible
-- **PATCH**: Bug fixes, backward compatible
-
-Current stable version: **v1.0.0** (Windows Production Ready)
-
-### Release Checklist
-
-- [ ] Update version in `setup.py`
-- [ ] Update `CHANGELOG.md`
-- [ ] Run full test suite
-- [ ] Update documentation
-- [ ] Create GitHub release
-- [ ] Tag release in git
-- [ ] Publish to PyPI
-
-## 📝 Commit Messages
-
-Use clear, descriptive commit messages:
-
-```
-feat: add Windows Event Viewer monitoring
-fix: resolve email notification threading issue
-docs: update installation instructions
-test: add coverage for notification system
-refactor: improve configuration management
-```
-
-## 🔒 Security
-
-- Never commit sensitive information
-- Report security issues privately to pandiyarajk@live.com
-- Follow security best practices
-- Validate all user inputs
-
-## 📞 Getting Help
-
-- **Documentation**: Check README.md and inline docs
-- **Issues**: Search existing issues first
-- **Discussions**: Use GitHub Discussions for questions
-- **Email**: Contact pandiyarajk@live.com
-
-## 🙏 Recognition
-
-Contributors will be recognized in:
-- README.md contributors section
-- Release notes
-- Project documentation
-
-## 📄 License
-
-By contributing, you agree that your contributions will be licensed under the MIT License.
-
----
-
-**Thank you for contributing to LogWatchdog!** 🎉
+## References
+This document was adapted from the open-source contribution guidelines for [Facebook's Draft](https://github.com/facebook/draft-js/blob/a9316a723f9e918afc44e6cbf45f05f6a3d9b0d8/CONTRIBUTING.md).

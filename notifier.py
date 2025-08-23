@@ -40,7 +40,7 @@ def show_popup(title: str, message: str):
         - Falls back gracefully if system notifications are unavailable
         
     Example:
-        show_popup("🚨 Exception Alert", "Database connection failed")
+        show_popup("Exception Alert", "Database connection failed")
     """
     # Display the system notification using plyer
     # This creates a popup that appears in the system tray area

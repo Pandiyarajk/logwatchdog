@@ -1,0 +1,13 @@
+# LogWatchdog Environment Configuration
+# Copy this file to .env and fill in your actual email credentials
+
+# Email Authentication (REQUIRED for email notifications)
+# These credentials are kept separate from the main config for security
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASSWORD=your-app-password
+
+# Note: 
+# - EMAIL_USER: Your email address (e.g., admin@company.com)
+# - EMAIL_PASSWORD: Your email password or app-specific password
+# - For Gmail, use an App Password if you have 2FA enabled
+# - Never commit the actual .env file to version control

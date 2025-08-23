@@ -2,7 +2,7 @@
 System Tray Notifier Module
 ===========================
 
-This module provides enhanced system tray notification functionality for the Rich Logger system.
+This module provides enhanced system tray notification functionality for the LogWatchdog system.
 It serves as an alternative to the basic notifier.py and includes fallback mechanisms
 for cases where system tray notifications are unavailable.
 
@@ -42,7 +42,7 @@ def show_notification(title: str, message: str):
         - Includes app name for better system integration
         
     Example:
-        show_notification("🚨 Exception Alert", "Database connection failed")
+        show_notification("Exception Alert", "Database connection failed")
         
     Raises:
         Exception: Any unexpected errors during notification display
@@ -54,7 +54,7 @@ def show_notification(title: str, message: str):
             title=title,           # The notification heading
             message=message,        # The notification content
             timeout=10,            # Duration in seconds before auto-dismissal
-            app_name="RichLogger", # Application name for system integration
+            app_name="LogWatchdog", # Application name for system integration
         )
         
         # Log successful notification (optional)
@@ -68,8 +68,8 @@ def show_notification(title: str, message: str):
         
         # Additional fallback: try to make the message more visible
         print("=" * 60)
-        print(f"🚨 ALERT: {title}")
-        print(f"📝 Message: {message}")
+        print(f"ALERT: {title}")
+        print(f"Message: {message}")
         print("=" * 60)
 
 def test_notification_system():
@@ -88,8 +88,8 @@ def test_notification_system():
         - Can be called independently for testing purposes
     """
     try:
-        test_title = "RichLogger Test"
-        test_message = "This is a sample notification to test the system 🚀"
+        test_title = "LogWatchdog Test"
+        test_message = "This is a sample notification to test the system"
         
         print("[TrayNotifier] Testing notification system...")
         show_notification(test_title, test_message)
@@ -108,16 +108,16 @@ if __name__ == "__main__":
     This allows users to test the notification system independently
     by running: python tray_notifier.py
     """
-    print("Testing RichLogger Tray Notifier...")
+    print("Testing LogWatchdog Tray Notifier...")
     print("=" * 40)
     
     # Test the notification system
     success = test_notification_system()
     
     if success:
-        print("✅ Notification system test completed successfully!")
+        print("Notification system test completed successfully!")
     else:
-        print("❌ Notification system test failed!")
+        print("Notification system test failed!")
     
     print("=" * 40)
     print("You can also import and use this module in other scripts:")

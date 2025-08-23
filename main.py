@@ -1,8 +1,8 @@
 """
-Main Entry Point
+LogWatchdog - Main Entry Point
 ==============================
 
-This module serves as the main entry point for the log monitoring.
+This module serves as the main entry point for the LogWatchdog application.
 It initializes the log monitoring system and starts monitoring for exceptions
 in specified log files.
 
@@ -20,4 +20,3 @@ if __name__ == "__main__":
     # Start the continuous log monitoring process
     # This function runs indefinitely until interrupted
     monitor_log()
-

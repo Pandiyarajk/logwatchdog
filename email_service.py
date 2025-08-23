@@ -2,40 +2,25 @@
 Email Service Module
 ====================
 
-This module provides email notification functionality for the Rich Logger system.
+This module provides email notification functionality for the LogWatchdog system.
 It handles sending alert emails when exceptions are detected in monitored log files.
 
 The service uses SMTP to send emails and supports:
 - TLS encryption for secure email transmission
 - Configurable SMTP server settings
 - Multiple recipient support
-- Environment-based configuration
+- Parameter-based configuration
 - Error handling and logging
 
-Configuration is loaded from environment variables for security and flexibility.
+Configuration is passed as parameters for security and flexibility.
 """
 
 import os
 import smtplib
 from email.mime.text import MIMEText
-from dotenv import load_dotenv
 
-# Load environment variables from .env file
-# This keeps sensitive information like passwords out of the code
-load_dotenv()
-
-# SMTP server configuration loaded from environment variables
-# These settings determine how emails are sent
-SMTP_SERVER = os.getenv("SMTP_SERVER")
-SMTP_PORT = int(os.getenv("SMTP_PORT", 587))  # Default to port 587 (TLS)
-EMAIL_USER = os.getenv("EMAIL_USER")
-EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
-
-# Recipient list - multiple email addresses can be specified
-# Comma-separated values are split into a list
-RECEIVER_GROUP = os.getenv("RECEIVER_GROUP").split(",")
-
-def send_email(subject: str, body: str):
+def send_email(subject: str, body: str, smtp_server: str, smtp_port: int, 
+               email_user: str, email_password: str, receiver_group: str):
     """
     Send email to all recipients in the configured receiver group.
     
@@ -45,6 +30,11 @@ def send_email(subject: str, body: str):
     Args:
         subject (str): The email subject line
         body (str): The email body content
+        smtp_server (str): SMTP server address
+        smtp_port (int): SMTP server port
+        email_user (str): Email username/address
+        email_password (str): Email password/app password
+        receiver_group (str): Comma-separated list of recipient emails
         
     Returns:
         None
@@ -55,44 +45,51 @@ def send_email(subject: str, body: str):
         
     Note:
         - Uses TLS encryption for security
-        - Sends to all recipients in RECEIVER_GROUP
+        - Sends to all recipients in receiver_group
         - Logs success/failure messages to console
     """
+    # Split receiver group into list
+    recipients = [email.strip() for email in receiver_group.split(",") if email.strip()]
+    
+    if not recipients:
+        print("[EMAIL ERROR] No valid recipients found in receiver_group")
+        return
+    
     # Create the email message using MIMEText
     # This provides proper email formatting and headers
     msg = MIMEText(body)
     msg["Subject"] = subject
-    msg["From"] = EMAIL_USER
-    msg["To"] = ", ".join(RECEIVER_GROUP)
+    msg["From"] = email_user
+    msg["To"] = ", ".join(recipients)
 
     try:
         # Establish connection to SMTP server
         # Using 'with' statement ensures proper connection cleanup
-        with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
+        with smtplib.SMTP(smtp_server, smtp_port) as server:
             # Start TLS encryption for secure communication
             # This encrypts the connection between client and server
             server.starttls()
             
             # Authenticate with the SMTP server using provided credentials
-            server.login(EMAIL_USER, EMAIL_PASSWORD)
+            server.login(email_user, email_password)
             
             # Send the email to all recipients
-            # The email is sent from EMAIL_USER to all addresses in RECEIVER_GROUP
-            server.sendmail(EMAIL_USER, RECEIVER_GROUP, msg.as_string())
+            # The email is sent from email_user to all addresses in recipients
+            server.sendmail(email_user, recipients, msg.as_string())
             
         # Log successful email transmission
         print("[EMAIL] Alert sent successfully.")
-        print(f"[EMAIL] Recipients: {', '.join(RECEIVER_GROUP)}")
+        print(f"[EMAIL] Recipients: {', '.join(recipients)}")
         
     except smtplib.SMTPAuthenticationError as e:
         # Handle authentication failures (wrong username/password)
         print(f"[EMAIL ERROR] Authentication failed: {e}")
-        print("[EMAIL ERROR] Please check your EMAIL_USER and EMAIL_PASSWORD")
+        print("[EMAIL ERROR] Please check your email_user and email_password")
         
     except smtplib.SMTPConnectError as e:
         # Handle connection failures (server unreachable, wrong port)
         print(f"[EMAIL ERROR] Connection failed: {e}")
-        print(f"[EMAIL ERROR] Please check SMTP_SERVER ({SMTP_SERVER}) and SMTP_PORT ({SMTP_PORT})")
+        print(f"[EMAIL ERROR] Please check smtp_server ({smtp_server}) and smtp_port ({smtp_port})")
         
     except smtplib.SMTPException as e:
         # Handle other SMTP-related errors
@@ -101,4 +98,4 @@ def send_email(subject: str, body: str):
     except Exception as e:
         # Handle any other unexpected errors
         print(f"[EMAIL ERROR] Unexpected error: {e}")
-        print(f"[EMAIL ERROR] Error type: {type(e).__name__}")
+        print("[EMAIL ERROR] Please check your configuration and network connection")
