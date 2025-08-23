@@ -2,8 +2,8 @@
 
 [![Python 3.7+](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![PyPI version](https://badge.fury.io/py/logwatchdog.svg)](https://badge.fury.io/py/logwatchdog)
-[![GitHub release](https://img.shields.io/github/release/pandiyarajk/logwatchdog.svg)](https://github.com/pandiyarajk/logwatchdog/releases)
+[![PyPI version](https://badge.fury.io/py/logwatchdog.svg)](https://pypi.org/project/logwatchdog/)
+[![GitHub](https://img.shields.io/badge/github-logwatchdog-green.svg)](https://github.com/pandiyarajk/logwatchdog)
 
 **LogWatchdog** is a production-ready Windows log monitoring solution that provides real-time monitoring, notifications, and automated log management capabilities.
 
@@ -76,7 +76,11 @@ EMAIL_PASSWORD=your-app-password
 ### 3. Start Monitoring
 
 ```bash
-python log_monitor.py
+# Start monitoring with default settings
+logwatchdog
+
+# Or use the short command
+lwd
 ```
 
 ## 📁 Monitoring Modes
@@ -107,15 +111,15 @@ python log_monitor.py
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see [CONTRIBUTING.md](https://github.com/pandiyarajk/logwatchdog/CONTRIBUTING.md) for details.
+We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/pandiyarajk/logwatchdog/LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🔄 Changelog
 
-See [CHANGELOG.md](https://github.com/pandiyarajk/logwatchdog/CHANGELOG.md) for version history.
+See [CHANGELOG.md](CHANGELOG.md) for version history.
 
 ---
 
