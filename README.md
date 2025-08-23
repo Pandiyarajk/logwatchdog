@@ -111,15 +111,15 @@ lwd
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
+We welcome contributions! Please see [CONTRIBUTING.md](https://github.com/pandiyarajk/logwatchdog/blob/main/CONTRIBUTING.md) for details.
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/pandiyarajk/logwatchdog/blob/main/LICENSE) file for details.
 
 ## 🔄 Changelog
 
-See [CHANGELOG.md](CHANGELOG.md) for version history.
+See [CHANGELOG.md](https://github.com/pandiyarajk/logwatchdog/blob/main/CHANGELOG.md) for version history.
 
 ---
 
