@@ -36,13 +36,13 @@ jobs:
         
     - name: Create executable
       run: |
-        pyinstaller --onefile --name=logwatchdog --distpath=dist --workpath=build --clean main.py
+        pyinstaller --onefile --name=logwatchdog --distpath=dist --workpath=build --clean logwatchdog/main.py
         
     - name: List build artifacts
       run: |
         dir dist
         echo "Executable size:"
-        Get-ChildItem dist\rich_logger.exe | ForEach-Object { "{0:N2} MB" -f ($_.Length / 1MB) }
+        Get-ChildItem dist\logwatchdog.exe | ForEach-Object { "{0:N2} MB" -f ($_.Length / 1MB) }
         
     - name: Upload executable as artifact
       uses: actions/upload-artifact@v4
