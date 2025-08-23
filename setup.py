@@ -83,7 +83,7 @@ DEV_REQUIRES = [
 # Setup configuration
 setup(
     name=PROJECT_NAME,
-    version="1.0.0",
+    version="1.0.1",
     description=PROJECT_DESCRIPTION,
     long_description=PROJECT_LONG_DESCRIPTION,
     long_description_content_type="text/markdown",
@@ -122,9 +122,6 @@ setup(
         "console_scripts": [
             "logwatchdog=logwatchdog.cli.main:main",
             "lwd=logwatchdog.cli.main:main",
-        ],
-        "gui_scripts": [
-            "logwatchdog-gui=logwatchdog.gui.main:main",
         ],
     },
     keywords=[
