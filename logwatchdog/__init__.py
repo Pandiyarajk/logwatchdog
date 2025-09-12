@@ -16,10 +16,10 @@ __email__ = "pandiyarajk@live.com"
 __license__ = "MIT"
 
 # Import main components
-from .log_monitor import monitor_log, monitor_single_file
-from .email_service import send_email
-from .notifier import show_popup
-from .tray_notifier import show_notification
+from logwatchdog.log_monitor import monitor_log , monitor_single_file
+from logwatchdog.email_service import send_email
+from logwatchdog.notifier import show_popup
+from logwatchdog.tray_notifier import show_notification
 
 __all__ = [
     "__version__",

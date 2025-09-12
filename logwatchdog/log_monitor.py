@@ -21,6 +21,7 @@ Features:
 """
 
 import os
+import sys
 import time
 import glob
 import configparser
@@ -35,7 +36,32 @@ from notifier import show_popup
 def load_config():
     """Load configuration from log_config.ini file and environment variables for sensitive data."""
     config = configparser.ConfigParser()
-    config_path = Path(__file__).parent.parent / "log_config.ini"
+    
+    # Handle both development and PyInstaller executable environments
+    if getattr(sys, 'frozen', False):
+        # Running as PyInstaller executable
+        base_path = Path(sys._MEIPASS)
+        config_path = base_path / "log_config.ini"
+        print(f"[INFO] Config file path from PyInstaller: {config_path}")
+    else:
+        print(f"[INFO] Running as script")
+        # Running as script - try multiple possible locations
+        possible_paths = [
+            Path.cwd() / "log_config.ini",  # Current working directory
+            Path(__file__).parent.parent / "log_config.ini",  # Project root            
+            Path(__file__).parent / "log_config.ini",  # Same directory as this module
+        ]
+        
+        config_path = None
+        for path in possible_paths:
+            if path.exists():
+                config_path = path
+                print(f"[INFO] Config file found at: {path}")
+                break
+        
+        if config_path is None:
+            # If no config file found, use the first possible path for error message
+            config_path = possible_paths[0]
     
     if not config_path.exists():
         print(f"[WARNING] Configuration file not found: {config_path}")
@@ -44,6 +70,7 @@ def load_config():
     
     try:
         config.read(config_path)
+        print(f"[INFO] Loaded configuration from: {config_path}")
         return config
     except Exception as e:
         print(f"[ERROR] Failed to read configuration file: {e}")
@@ -52,8 +79,30 @@ def load_config():
 
 def load_env_credentials():
     """Load sensitive email credentials from environment file."""
-    # Load environment variables from .env file
-    load_dotenv()
+    # Try to load .env file from multiple possible locations
+    if getattr(sys, 'frozen', False):
+        # Running as PyInstaller executable - look for .env in the same directory as the executable
+        base_path = Path(sys.executable).parent
+        env_path = base_path / ".env"
+    else:
+        # Running as script - try multiple possible locations
+        possible_env_paths = [
+            Path(__file__).parent.parent / ".env",  # Project root
+            Path.cwd() / ".env",  # Current working directory
+            Path(__file__).parent / ".env",  # Same directory as this module
+        ]
+        
+        env_path = None
+        for path in possible_env_paths:
+            if path.exists():
+                env_path = path
+                break
+    
+    # Load environment variables from .env file if found
+    if env_path and env_path.exists():
+        load_dotenv(env_path)
+    else:
+        load_dotenv()  # Try default locations
     
     # Read sensitive email credentials from environment
     email_user = os.getenv("EMAIL_USER")
