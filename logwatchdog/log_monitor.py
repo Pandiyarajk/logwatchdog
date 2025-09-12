@@ -29,8 +29,8 @@ from typing import List, Dict, Set
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 from dotenv import load_dotenv
-from .email_service import send_email
-from .notifier import show_popup
+from email_service import send_email
+from notifier import show_popup
 
 def load_config():
     """Load configuration from log_config.ini file and environment variables for sensitive data."""

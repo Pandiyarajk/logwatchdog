@@ -10,7 +10,7 @@ The application provides real-time monitoring of log files with automatic
 alerting via email and system tray notifications when exceptions are detected.
 """
 
-from .log_monitor import monitor_log
+from log_monitor import monitor_log
 
 if __name__ == "__main__":
     # Display startup message to indicate monitoring has begun
