@@ -1,6 +1,8 @@
 name: Build Log Watchdog Executable
 
 on:
+  workflow_dispatch:
+    
   pull_request:
     branches:
       - main
