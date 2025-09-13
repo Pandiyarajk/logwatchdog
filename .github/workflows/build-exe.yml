@@ -38,7 +38,7 @@ jobs:
         
     - name: Create executable
       run: |
-        pyinstaller --onefile --name=logwatchdog --distpath=dist --workpath=build --clean --add-data "log_config.ini;." logwatchdog/main.py
+        pyinstaller --name LogWatchdog --onefile --noconfirm --hidden-import logwatchdog.log_monitor --hidden-import logwatchdog.email_service --hidden-import logwatchdog.notifier --hidden-import logwatchdog.tray_notifier --hidden-import tkinter --hidden-import tkinter.ttk --hidden-import threading --hidden-import ctypes.wintypes logwatchdog/main.py
         
     - name: List build artifacts
       run: |
