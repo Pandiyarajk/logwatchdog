@@ -15,7 +15,7 @@ if __name__ == "__main__":
     print("[START] Monitoring logs for exceptions...")
     print("[INFO] Press Ctrl+C to stop monitoring")
     try:
-        from log_monitor import monitor_log    
+        from logwatchdog.log_monitor import monitor_log    
         # Start the continuous log monitoring process
         # This function runs indefinitely until interrupted
         print("[INFO] Starting log monitoring...")

@@ -5,6 +5,42 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+
+## [1.0.2] - 09-13-2025
+
+### Added
+- **Standalone Executable Support**: PyInstaller build system for creating standalone executables
+- **Auto-Configuration**: Automatically creates `log_config.ini` with sensible defaults
+- **Custom Flash Popups**: Beautiful red popup notifications for executables (auto-closes after 3 seconds)
+- **Batch Email Processing**: Groups multiple errors from same file into single email
+- **Enhanced Notifications**: Multi-layered alert system with taskbar flashing, system sounds, and visual popups
+- **Build Scripts**: Advanced `build_exe.py` and simple `build.bat` for easy executable creation
+- **Smart Path Resolution**: Intelligent detection of execution directory vs script directory
+- **Improved Error Handling**: Graceful fallbacks for notification failures
+
+### Enhanced
+- **Notification System**: 
+  - Executables: Custom flash popups + taskbar flashing + system sounds
+  - Scripts: Native system tray notifications with plyer fallback
+- **Email Alerts**: Rich content with error counts, timestamps, and detailed information
+- **Configuration**: Auto-generated config files with helpful comments and defaults
+- **Logging**: Enhanced .env file location detection and error reporting
+
+### Technical
+- **PyInstaller Integration**: Complete build system with hidden imports and data files
+- **Tkinter Integration**: Custom popup notifications for Windows executables
+- **Threading Support**: Non-blocking notifications and popup handling
+- **Windows API**: Direct ctypes integration for taskbar flashing and system sounds
+- **Dependency Management**: Streamlined requirements with version specifications
+
+### Fixed
+- **Import Issues**: Resolved all PyInstaller import problems with proper module mapping
+- **Notification Failures**: Robust fallback system prevents crashes on notification errors
+- **Path Handling**: Smart path resolution works in both script and executable modes
+- **Email Spam**: Batch processing prevents multiple emails for same file errors
+
+---
+
 ## [1.0.1] - 08-23-2025
 
 ### Fixed
@@ -52,6 +88,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Planned
-- Additional notification channels
 - Web dashboard interface
 - Log analysis and reporting features
+- Configuration GUI
+- Remote monitoring capabilities

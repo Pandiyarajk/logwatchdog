@@ -1,41 +1,25 @@
 # LogWatchdog - Core Dependencies
-# Windows-Only Log Monitoring Solution
+# Real-time Log Monitoring Solution with Exception Detection
 
-# Core monitoring and notification
-plyer>=2.0.0                    # Cross-platform notifications
-python-dotenv>=0.19.0           # Environment variable management for sensitive data
-
-# Windows system monitoring dependencies
-psutil>=5.8.0                   # Windows system and process monitoring
-
-# File monitoring and processing
+# Core dependencies
+plyer>=2.0.0                    # Cross-platform notifications (fallback for script mode)
+python-dotenv>=0.19.0           # Environment variable management for email credentials
+psutil>=5.8.0                   # System monitoring and process management
 watchdog>=2.1.0                 # File system monitoring and folder watching
-
-# Email and communication
-# Note: smtplib is built-in to Python, no external package needed
 email-validator>=1.1.3          # Email address validation
 
-# Configuration and data handling
-# Note: configparser is built-in to Python, no external package needed
+# Build and distribution
+pyinstaller>=5.0.0              # Create standalone executables
 
-# Logging and debugging
-# Note: logging is built-in to Python, no external package needed
-
-# Optional dependencies (uncomment as needed)
-# pyyaml>=6.0                     # YAML configuration support
-# jsonschema>=4.0.0               # JSON schema validation
-# structlog>=21.1.0                # Structured logging
-# loguru>=0.5.3                   # Advanced logging features
-
-# Development and testing (optional)
-# Uncomment for development environment
-# pytest>=6.0.0                 # Testing framework
-# pytest-cov>=2.10.0            # Coverage reporting
-# black>=21.0.0                 # Code formatting
-# flake8>=3.8.0                 # Linting
-# mypy>=0.800                   # Type checking
-
-# Build and distribution (optional)
-# Uncomment for building executables
-# pyinstaller>=5.0.0            # Create standalone executables
-# cx_Freeze>=6.0                # Alternative executable creation
+# Built-in Python modules (no installation needed)
+# - smtplib (email sending)
+# - configparser (INI file handling)
+# - logging (application logging)
+# - tkinter (custom popup notifications)
+# - threading (non-blocking notifications)
+# - ctypes (Windows API calls)
+# - pathlib (file path handling)
+# - time (timing and delays)
+# - os (operating system interface)
+# - sys (system-specific parameters)
+# - glob (file pattern matching)
