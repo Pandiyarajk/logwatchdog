@@ -83,7 +83,7 @@ DEV_REQUIRES = [
 # Setup configuration
 setup(
     name=PROJECT_NAME,
-    version="1.0.1",
+    version="1.0.2",
     description=PROJECT_DESCRIPTION,
     long_description=PROJECT_LONG_DESCRIPTION,
     long_description_content_type="text/markdown",

@@ -5,12 +5,12 @@ LogWatchdog - Windows Log Monitoring Solution
 A comprehensive Windows log monitoring and management solution that provides
 real-time monitoring, notifications, and automated log management capabilities.
 
-Version: 1.0.1
+Version: 1.0.2
 Author: Pandiyaraj Karuppasamy
 License: MIT
 """
 
-__version__ = "1.0.1"
+__version__ = "1.0.2"
 __author__ = "Pandiyaraj Karuppasamy"
 __email__ = "pandiyarajk@live.com"
 __license__ = "MIT"

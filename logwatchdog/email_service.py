@@ -79,7 +79,7 @@ def send_email(subject: str, body: str, smtp_server: str, smtp_port: int,
             
         # Log successful email transmission
         print("[EMAIL] Alert sent successfully.")
-        print(f"[EMAIL] Recipients: {', '.join(recipients)}")
+        # print(f"[EMAIL] Recipients: {', '.join(recipients)}")
         
     except smtplib.SMTPAuthenticationError as e:
         # Handle authentication failures (wrong username/password)
